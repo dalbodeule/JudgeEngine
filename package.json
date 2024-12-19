@@ -1,0 +1,42 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.714.0",
+    "@nuxt/eslint": "^0.5.1",
+    "@nuxtjs/i18n": "^9.1.1",
+    "@nuxtjs/turnstile": "^0.9.3",
+    "bulma": "^1.0.2",
+    "dayjs": "^1.11.13",
+    "drizzle-orm": "^0.33.0",
+    "nuxt": "^3.14.1592",
+    "nuxt-auth-utils": "^0.5.7",
+    "pg": "^8.13.1",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-rds-data": "^3.635.0",
+    "@nuxtjs/sitemap": "^7.0.0",
+    "@pinia/nuxt": "^0.9.0",
+    "@types/pg": "^8.11.10",
+    "@vee-validate/nuxt": "^4.14.7",
+    "@vesp/nuxt-fontawesome": "^1.1.0",
+    "@vueuse/nuxt": "^12.0.0",
+    "drizzle-kit": "^0.24.0",
+    "nuxt-csurf": "^1.6.5",
+    "nuxt-monaco-editor": "^1.3.1",
+    "nuxt-openapi-docs-module": "^5.3.1",
+    "nuxt-purgecss": "^2.0.0",
+    "sass-embedded": "^1.83.0"
+  }
+}
