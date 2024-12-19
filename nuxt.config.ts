@@ -43,6 +43,9 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'ko'
   },
+  monacoEditor: {
+    locale: 'ko'
+  },
   modules: [
     "@nuxtjs/turnstile",
     "@nuxt/eslint",
@@ -54,7 +57,6 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     '@nuxtjs/sitemap',
     'nuxt-csurf',
-    'nuxt-monaco-editor',
     'nuxt-openapi-docs-module',
     '@vesp/nuxt-fontawesome'
   ]
