@@ -5,7 +5,9 @@
 <template>
   <div>
     <SiteHeader/>
-    <NuxtPage/>
+    <div class="container mx-auto px-4 min-h-[80vh] my-[3em]">
+      <NuxtPage/>
+    </div>
     <SiteFooter/>
   </div>
 </template>

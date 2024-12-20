@@ -2,30 +2,47 @@
 import type { Ref } from "vue";
 
 const show: Ref<boolean> = ref(false)
-const router = useRouter()
-const { loggedIn, user, session, clear } = useUserSession()
+const _user = useUserSession()
 
 const config = useRuntimeConfig()
+
+const menus: { text: string, to: string, blank: boolean }[] = [
+    { text: '소개', to: "/intro" , blank: false },
+    { text: '서비스', to: "/service" , blank: false },
+]
 </script>
 
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <NuxtLink class="navbar-item" to="/">
-        <img src="" alt="">&nbsp; {{ config.public.name }}
-      </NuxtLink>
-    </div>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="show = !show">
-      <span aria-hidden="true"/>
-      <span aria-hidden="true"/>
-      <span aria-hidden="true"/>
-      <span aria-hidden="true"/>
-    </a>
-    <div class="navbar-menu" :class="show ? 'is-active' : ''">
-      <div class="navbar-start">
+  <nav class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- 왼쪽 요소 -->
+      <div class="text-lg font-bold">
+        {{ config.public.name }}
       </div>
-      <div class="navbar-end">
-        <NuxtLink class="navbar-item" to="/auth/login">로그인</NuxtLink>
+
+      <!-- 모바일 뷰 햄버거 버튼 -->
+      <div class="block md:hidden">
+        <button id="hamburger" class="focus:outline-none" type="button" @click="show = !show">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+        </button>
+      </div>
+
+      <!-- 오른쪽 요소 -->
+      <div class="hidden md:flex space-x-4">
+        <template v-for="(menu, idx) in menus" :key="`navpc-${idx}`">
+          <NuxtLink v-if="!menu.blank" :to="menu.to" class="text-gray-700 hover:text-blue-500">{{ menu.text }}</NuxtLink>
+          <a v-else :href="menu.to" class="text-sm font-bold text-gray-500 dark:text-gray-400" target="_blank">{{ menu.text }}</a>
+        </template>
+      </div>
+    </div>
+
+    <!-- 모바일 메뉴 -->
+    <div v-if="show" class="md:hidden bg-white overflow-hidden" style="max-height: 600px;">
+      <div class="flex flex-col space-y-2 py-4 px-4">
+        <template v-for="(menu, idx) in menus" :key="`navmov-${idx}`">
+          <NuxtLink v-if="!menu.blank" :to="menu.to" class="text-gray-700 hover:text-blue-500">{{ menu.text }}</NuxtLink>
+          <a v-else :href="menu.to" class="text-sm font-bold text-gray-500 dark:text-gray-400" target="_blank">{{ menu.text }}</a>
+        </template>
       </div>
     </div>
   </nav>

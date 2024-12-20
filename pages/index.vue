@@ -1,11 +1,9 @@
 <script setup lang="ts">
-const route = useRoute()
+const _route = useRoute()
 </script>
 
 <template>
-  <div class="container">
-    <section class="content">
-      <h1>Lambda Template</h1>
-    </section>
-  </div>
+  <section class="py-8">
+    <h1 class="text-3xl font-bold">Lambda Template</h1>
+  </section>
 </template>

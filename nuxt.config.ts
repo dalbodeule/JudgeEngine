@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     },
   },
   css: [
-    'bulma/bulma.scss',
     "~/assets/scss/main.scss",
   ],
   srcDir: '.',
@@ -43,9 +42,6 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'ko'
   },
-  monacoEditor: {
-    locale: 'ko'
-  },
   modules: [
     "@nuxtjs/turnstile",
     "@nuxt/eslint",
@@ -58,6 +54,8 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     'nuxt-csurf',
     'nuxt-openapi-docs-module',
-    '@vesp/nuxt-fontawesome'
+    '@vesp/nuxt-fontawesome',
+    '@nuxtjs/tailwindcss',
+    'nuxt-monaco-editor'
   ]
 })
